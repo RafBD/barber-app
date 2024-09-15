@@ -1,13 +1,14 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import BookAppointment from "../BookAppointment";
+// import { useAuth0 } from "@auth0/auth0-react";
+// import BookAppointment from "../BookAppointment";
 import NavBar from "../../components/navbar/NavBar";
+import imagesData from "../../data/imagesData.json";
 import "./Home.css";
 
 const Home = () => {
 
-    const { loginWithRedirect, isAuthenticated } = useAuth0();
-    console.log("autenticado", isAuthenticated);
+    //const { loginWithRedirect, isAuthenticated } = useAuth0();
+    // console.log("autenticado", isAuthenticated);
 
     return (
         <div className="scroll-smooth">
@@ -77,33 +78,16 @@ const Home = () => {
                                     Galería
                                 </h2>
                         </div>
-                        <div className="grid grid-cols-4 gap-4 mt-5 grid-gallery">
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://plus.unsplash.com/premium_photo-1721203654854-d5b79749560a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen"
-                                className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110"
-                                />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://images.unsplash.com/photo-1642504640216-a2a8cce892e6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://plus.unsplash.com/premium_photo-1661645807231-2635324e8833?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://images.unsplash.com/photo-1606333259737-6da197890fa2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>
-                            <div className="relative overflow-hidden w-full h-auto">
-                                <img src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                            </div>  
+                        <div className="grid grid-cols-3 gap-4 mt-5 grid-gallery">
+                            {imagesData.map((image, index) => (
+                                <div key={index} className="relative overflow-hidden w-full h-auto">
+                                    <img 
+                                        src={image.src} 
+                                        alt={image.alt} 
+                                        className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" 
+                                    />
+                                </div> 
+                            ))}
                         </div>
                     </div>
                     
