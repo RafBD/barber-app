@@ -58,12 +58,15 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 h-auto">
-                        <img src="https://images.unsplash.com/photo-1580087433295-ab2600c1030e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-full object-cover" />
-                        <img src="https://images.unsplash.com/photo-1675599193286-1fb21649e097?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-full object-cover" />
+                        {imagesData.about.map((image, index) => (
+                            <img 
+                                src={image.src} 
+                                alt={image.alt} 
+                                className="w-full h-full object-cover" 
+                            />
+                        ))}
                     </div>
-                    
                 </div>
-                
             </section>
 
             {/* GALLERY */}
@@ -79,7 +82,7 @@ const Home = () => {
                                 </h2>
                         </div>
                         <div className="grid grid-cols-3 gap-4 mt-5 grid-gallery">
-                            {imagesData.map((image, index) => (
+                            {imagesData.gallery.map((image, index) => (
                                 <div key={index} className="relative overflow-hidden w-full h-auto">
                                     <img 
                                         src={image.src} 
