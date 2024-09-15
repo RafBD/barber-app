@@ -10,82 +10,105 @@ const Home = () => {
     console.log("autenticado", isAuthenticated);
 
     return (
-        <div
-            className="scroll-smooth"
-        >
+        <div className="scroll-smooth">
             <NavBar />
-
+            {/* HERO */}
             <header className="contenedor">
                 <h1 className="mt-5 text-5xl z-10"
                 >
                     Bienvenido a Barber Shop
                 </h1>
                 <p 
-                    className="text-center text-2xl z-10"
+                    className="text-center text-2xl z-10 "
                 >
                     Tu lugar de confianza para un corte de cabello y afeitado
-                </p>        
+                </p>
+                <a href="#" className="text-white text-lg p-3 font-semibold rounded-lg mt-6 bg-[#CA8A04] z-10">
+                    Conoce nuestros servicios
+                </a>
+
             </header>
 
+            {/* ABOUT  */}
             <section 
                 id="about"
-                className="mt-10 mb-10 p-7 bg-gray-100"
+                className="p-7 bg-gray-100"
             >
-                <h2
-                    className="text-2xl font-semibold text-center"
-                >
-                    Sobre nosotros
-                </h2>
-                <div
-                    className="text-gray-900 w-3/4 mx-auto p-4"
-                >
-                    <p
-                        className="text-gray-900 text-lg mt-4 mb-4"
-                    >
-                        Somos una barbería con más de 10 años de experiencia. Nuestro objetivo es ofrecer un servicio de calidad y un trato personalizado a cada uno de nuestros clientes. Ven a visitarnos y disfruta de un ambiente relajado y agradable.
-
-                    </p>
+                
+                <div className="text-gray-900 w-3/4 mx-auto p-4 m-20 grid grid-cols-2 gap-10">
+                    <div className="p-4 text-justify">
+                        <div>
+                            <h2 className="text-4xl font-semibold gold">
+                                Barber Shop
+                            </h2>
+                        </div>
+                        <div>
+                            <p className="text-gray-900 text-lg mt-4 mb-4 leading-loose">
+                                Nos destacamos por proporcionar una atención más íntima, personalizada y detallada, transformando esta tradición consagrada en una experiencia placentera y destacada para el hombre de hoy, donde cortarse el cabello, cuidarse la piel y afeitarse se convierten en una terapia de amigos y relajación, más que en un hábito.
+                            </p>
+                            <p className="text-gray-900 text-lg mt-4 mb-4 leading-loose">
+                                Nos esforzamos por brindar un santuario de cuidado personal que combine a la perfección; el encanto del pasado con las exigencias del presente.
+                            </p>
+                        </div>
+                        <div className="mt-10">
+                            <a href="/" className="text-white text-lg p-4 rounded-lg mt-4 bg-[#CA8A04] uppercase font-semibold tracking-[.2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-transparent duration-300">
+                                conócenos
+                            </a>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-8 h-auto">
+                        <img src="https://images.unsplash.com/photo-1580087433295-ab2600c1030e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1675599193286-1fb21649e097?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-full object-cover" />
+                    </div>
+                    
                 </div>
                 
             </section>
 
+            {/* GALLERY */}
             <section 
                 id="gallery"
-                className="mt-10 mb-10 p-7 bg-gray-100"
+                className="p-7"
             >
-                <h2
-                    className="text-2xl font-semibold text-center"
-                >
-                    Galería
-                </h2>
-                <div className="grid grid-cols-4 gap-4 mt-5">
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://plus.unsplash.com/premium_photo-1721203654854-d5b79749560a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen"
-                        className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110"
-                        />
+                <div className="text-gray-900 w-3/4 mx-auto">
+                    <div className="p-4">
+                        <div>
+                                <h2 className="text-4xl font-semibold gold">
+                                    Galería
+                                </h2>
+                        </div>
+                        <div className="grid grid-cols-4 gap-4 mt-5 grid-gallery">
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://plus.unsplash.com/premium_photo-1721203654854-d5b79749560a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen"
+                                className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110"
+                                />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://images.unsplash.com/photo-1642504640216-a2a8cce892e6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://plus.unsplash.com/premium_photo-1661645807231-2635324e8833?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://images.unsplash.com/photo-1606333259737-6da197890fa2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>
+                            <div className="relative overflow-hidden w-full h-auto">
+                                <img src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
+                            </div>  
+                        </div>
                     </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://images.unsplash.com/photo-1642504640216-a2a8cce892e6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://plus.unsplash.com/premium_photo-1661645807231-2635324e8833?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://images.unsplash.com/photo-1606333259737-6da197890fa2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>
-                    <div className="relative overflow-hidden w-full h-auto">
-                        <img src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="imagen" className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" />
-                    </div>  
+                    
                 </div>
+                
             </section>
 
             <section id="location">
