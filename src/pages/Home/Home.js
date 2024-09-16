@@ -2,7 +2,7 @@ import React from "react";
 // import { useAuth0 } from "@auth0/auth0-react";
 // import BookAppointment from "../BookAppointment";
 import NavBar from "../../components/navbar/NavBar";
-import imagesData from "../../data/imagesData.json";
+import data from "../../data/data.json";
 import "./Home.css";
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
                 >
                     Tu lugar de confianza para un corte de cabello y afeitado
                 </p>
-                <a href="#" className="text-white text-lg p-3 font-semibold rounded-lg mt-6 bg-[#CA8A04] z-10">
+                <a href="/" className="text-white text-lg p-4 border border-[#CA8A04] rounded-lg mt-4 z-10 bg-[#CA8A04] uppercase font-semibold transition ease-in-out  hover:bg-transparent duration-300 hover:border hover:border-[#CA8A04] hover:text-white">
                     Conoce nuestros servicios
                 </a>
 
@@ -33,9 +33,8 @@ const Home = () => {
             {/* ABOUT  */}
             <section 
                 id="about"
-                className="p-7 bg-gray-100"
+                className="p-7"
             >
-                
                 <div className="text-gray-900 w-3/4 mx-auto p-4 m-20 grid grid-cols-2 gap-10">
                     <div className="p-4 text-justify">
                         <div>
@@ -52,13 +51,13 @@ const Home = () => {
                             </p>
                         </div>
                         <div className="mt-10">
-                            <a href="/" className="text-white text-lg p-4 rounded-lg mt-4 bg-[#CA8A04] uppercase font-semibold tracking-[.2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-transparent duration-300">
+                            <a href="/" className="text-white text-lg p-4 rounded-lg mt-4 bg-[#CA8A04] uppercase font-semibold tracking-[.2rem] transition ease-in-out hover:-translate-y-14 hover:scale-110 hover:bg-transparent duration-300 hover:border hover:border-[#CA8A04] hover:text-[#CA8A04]">
                                 conócenos
                             </a>
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 h-auto">
-                        {imagesData.about.map((image, index) => (
+                        {data.about.map((image, index) => (
                             <img 
                                 src={image.src} 
                                 alt={image.alt} 
@@ -69,6 +68,45 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* SERVICES */}
+            <section id="about" className="p-7 bg-gray-100">
+                <div className="text-gray-900 w-3/4 mx-auto p-4 m-20 gap-10">
+                    <div className="flex flex-col gap-8 mb-16">
+                        <h2 className="text-4xl font-semibold gold text-center">
+                            Nuestros Servicios
+                        </h2>
+                        <p className="text-center text-lg mb-4 leading-loose px-36 py-0">
+                            Bienvenido a una experiencia de cuidado personal como ninguna otra. Los servicios que ofrecemos van más allá de lo común, adoptando la herencia de la barbería clásica e incorporando a la perfección técnicas de vanguardia.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-2 h-auto items-stretch">
+                        <div className="h-full">
+                            <img 
+                            src="https://images.unsplash.com/photo-1603899968034-1a56ca48d172?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            alt="servicio" 
+                            className="w-full h-full rounded-lg shadow-lg object-cover" 
+                            />
+                        </div>
+                        <div className="px-4 flex flex-col justify-between h-full">
+                            {data.services.map((service, index) => (
+                                <div key={index} className="flex bg-[#0000000c] items-center rounded-lg">
+                                    <div className="bg-[#CA8A04] py-16 px-6">
+                                        <span className="text-white text-5xl">{service.icon}</span>
+                                    </div>
+                                    <div className="px-10">
+                                        <h3 className="text-3xl mb-2">{service.title}</h3>
+                                        <p className="text-lg">{service.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                            
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+
+
             {/* GALLERY */}
             <section 
                 id="gallery"
@@ -77,12 +115,12 @@ const Home = () => {
                 <div className="text-gray-900 w-3/4 mx-auto">
                     <div className="p-4">
                         <div>
-                                <h2 className="text-4xl font-semibold gold">
+                                <h2 className="text-4xl font-semibold gold text-center">
                                     Galería
                                 </h2>
                         </div>
                         <div className="grid grid-cols-3 gap-4 mt-5 grid-gallery">
-                            {imagesData.gallery.map((image, index) => (
+                            {data.gallery.map((image, index) => (
                                 <div key={index} className="relative overflow-hidden w-full h-auto">
                                     <img 
                                         src={image.src} 
