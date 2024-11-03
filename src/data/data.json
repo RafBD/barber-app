@@ -89,6 +89,44 @@
             "description": "Tratamiento personalizado para fortalecer y revitalizar tu cabello.",
             "icon": "💆‍♂️"
         }
-    ]
+    ],
+    "testimonials": [
+        {
+          "name": "Carlos Ramírez",
+          "image": "https://example.com/testimonials/carlos.jpg",
+          "text": "Me atendieron con mucha dedicación y profesionalismo. El ambiente es excelente y el corte superó mis expectativas. Definitivamente, mi lugar de confianza.",
+          "rating": 5
+        },
+        {
+          "name": "Ana Martínez",
+          "image": "https://example.com/testimonials/ana.jpg",
+          "text": "Un servicio increíble desde el primer momento. El personal es amable y me brindaron justo lo que buscaba. ¡Lo recomiendo mucho!",
+          "rating": 5
+        },
+        {
+          "name": "Luis Fernández",
+          "image": "https://example.com/testimonials/luis.jpg",
+          "text": "Un lugar acogedor con un equipo profesional. La experiencia fue muy relajante y salí más que satisfecho. Ideal para un buen cambio de look.",
+          "rating": 4
+        },
+        {
+          "name": "Sofía López",
+          "image": "https://example.com/testimonials/sofia.jpg",
+          "text": "Los mejores en cortes y estilo. Me encantó la atención al detalle. Sin duda, volveré para probar otros servicios.",
+          "rating": 5
+        },
+        {
+          "name": "Miguel Torres",
+          "image": "https://example.com/testimonials/miguel.jpg",
+          "text": "Un lugar diferente, con excelente trato y una calidad de servicio única. Si buscas relajarte y salir renovado, este es el lugar.",
+          "rating": 4
+        },
+        {
+          "name": "María Rodríguez",
+          "image": "https://example.com/testimonials/maria.jpg",
+          "text": "¡Me encantó! Un ambiente agradable y un equipo muy profesional. El corte fue exactamente lo que quería. ¡Volveré pronto!",
+          "rating": 5
+        }
+      ]
 
 }

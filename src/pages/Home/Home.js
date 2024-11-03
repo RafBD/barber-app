@@ -59,6 +59,22 @@ const Home = () => {
             {/* GALLERY */}
             <Gallery/>
 
+            {/* TESTIMONIALS */}
+            <section className="bg-white py-8 px-4">
+                <div className="max-w-screen-lg mx-auto text-center">
+                    <h2 className="text-4xl font-semibold text-gray-800 mb-6">Lo que dicen nuestros clientes</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {data.testimonials.map((testimonial, index) => (
+                            <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-md">
+                                <p className="text-gray-600 italic">"{testimonial.text}"</p>
+                                <p className="mt-2 font-semibold">{testimonial.name}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
             {/* <section id="location">
                 <div>
                     <iframe
