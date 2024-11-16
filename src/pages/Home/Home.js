@@ -33,7 +33,7 @@ const Home = () => {
 
             {/* ABOUT  */}
             
-            <section id="about" class="bg-white">
+            <section class="bg-white">
                 <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                     <div class="font-light sm:text-lg">
                         <h2 class="mb-4 text-4xl tracking-tight font-bold">Barber Shop</h2>
