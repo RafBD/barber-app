@@ -12,12 +12,12 @@ const Gallery = () => {
                     {data.gallery.map((image, index) => (
                         <div
                             key={index}
-                            className="relative overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg"
+                            className=""
                         >
                             <img
                                 src={image.src}
                                 alt={image.alt}
-                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                className=""
                             />
                         </div>
                     ))}
