@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react"; // Importa el hook de Auth0
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
-    const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0(); // Desestructuramos las funciones de Auth0
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -97,14 +97,7 @@ const NavBar = () => {
                                 Inicio
                             </a>
                         </li>
-                        <li>
-                            <a
-                                href="/"
-                                className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
-                            >
-                                Acerca de
-                            </a>
-                        </li>
+                        
                         <li>
                             <a
                                 href="/services"
@@ -113,18 +106,10 @@ const NavBar = () => {
                                 Servicios
                             </a>
                         </li>
-                        <li>
-                            <a
-                                href="/"
-                                className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
-                            >
-                                Contacto
-                            </a>
-                        </li>
                         {isAuthenticated ? (
                             <li>
                                 <a
-                                    href="/services"
+                                    href="/reservations"
                                     className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
                                 >
                                     Mis Reservas
@@ -132,7 +117,14 @@ const NavBar = () => {
                             </li>
 
                         ) : (
-                            ""
+                            <li>
+                            <a
+                                href="/"
+                                className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
+                            >
+                                Acerca de
+                            </a>
+                        </li>
                         )}
                     </ul>
                 </div>
