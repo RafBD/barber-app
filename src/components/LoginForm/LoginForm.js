@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const LoginForm = () => {
 
-    const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+    const { loginWithRedirect } = useAuth0();
 
 
 
