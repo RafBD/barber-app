@@ -20,21 +20,21 @@ const ServicesSection = () => {
                         >
                             <div className="space-y-4">
                                 {servicios[categoria].map((servicio, index) => (
-                                    <div key={index} className="flex items-center justify-between p-6 rounded-lg shadow-lg">
+                                    <div key={index} className="md:flex items-center justify-between p-6 rounded-lg shadow-lg">
                                         <div>
                                             <h3 className="text-base font-semibold">{servicio.nombre}</h3>
                                             <p className="text-gray-500">{servicio.descripcion}</p>
                                         </div>
-                                        <div className="flex gap-4">
-                                            <div className="text-center">
-                                                <p className="font-bold text-center">{servicio.precio}</p>
+                                        <div className="mt-3 md:mt-0 md:flex md:gap-4">
+                                            <div className="md:text-center">
+                                                <p className="font-bold">{servicio.precio}</p>
                                                 <p>{servicio.tiempo} minutos</p>
                                             </div>
                                             <div>
                                                 <Button
                                                     label="Reservar"
                                                     icon="pi pi-calendar"
-                                                    className="bg-[#a16f07] hover:bg-[#8e5707] transition-all duration-300 p-2 text-white text-base font-semibold rounded-lg"
+                                                    className="mt-3 md:mt-0 bg-[#a16f07] hover:bg-[#8e5707] transition-all duration-300 p-2 text-white text-base font-semibold rounded-lg"
                                                 />
                                             </div>
                                         </div>
