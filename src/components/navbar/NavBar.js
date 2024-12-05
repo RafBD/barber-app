@@ -5,6 +5,8 @@ const NavBar = () => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
     const [isOpen, setIsOpen] = useState(false);
 
+    const { user } = useAuth0();
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -25,12 +27,16 @@ const NavBar = () => {
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     {isAuthenticated ? (
                         // Si está autenticado, muestra el botón para cerrar sesión
-                        <button
+                        <div className="hidden md:flex items-center justify-center">
+                            <p>Hola <span className="font-semibold">{user.name}</span></p>
+                            <img src={user.picture} alt={user.name} className="w-10 h-10 rounded-full" />
+                            <button
                             onClick={() => logout({ returnTo: window.location.origin })} // Cerrar sesión
                             className="text-[#422f06] bg-[#ca8a04] hover:bg-[#a16f07] transition-all ease-in-out focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
-                        >
-                            Cerrar sesión
-                        </button>
+                            >
+                                Cerrar sesión
+                            </button>
+                        </div>
 
                     ) : (
                         // Si no está autenticado, muestra el botón para iniciar sesión
@@ -100,7 +106,7 @@ const NavBar = () => {
                         
                         <li>
                             <a
-                                href="/services"
+                                href="/servicios"
                                 className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
                             >
                                 Servicios
@@ -109,7 +115,7 @@ const NavBar = () => {
                         {isAuthenticated ? (
                             <li>
                                 <a
-                                    href="/reservations"
+                                    href="/reservas"
                                     className="block py-2 px-3 text-white rounded md:p-0 hover:underline transition-all ease-in-out"
                                 >
                                     Mis Reservas
