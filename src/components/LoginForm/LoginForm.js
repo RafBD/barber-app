@@ -15,14 +15,14 @@ const LoginForm = () => {
             <p className="text-center text-gray-500 mb-6">
                 Para agendar una cita con nosotros debes de iniciar sesión
             </p>
-            <div className="md: justify-center">
+            <div className="text-center">
                 <button
                     onClick={() => loginWithRedirect()}
-                    className="text-[#422f06] bg-[#ca8a04] hover:bg-[#a16f07] transition-all ease-in-out focus:outline-none font-medium rounded-lg text-sm md:text-base px-4 py-2 w-full"
+                    className="text-[#422f06] bg-[#ca8a04] hover:bg-[#a16f07] transition-all ease-in-out focus:outline-none font-medium rounded-lg text-sm md:text-base px-4 py-2 w-full mb-5"
                 >
                     Iniciar sesión
                 </button>
-                <a href="/" className="text-center text-gray-600 mt-4">
+                <a href="/" className="text-center text-gray-600">
                     Volver a la página principal
                 </a>
             </div>
