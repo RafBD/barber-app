@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Cambia Navigate por useNavigate
 import { Accordion, AccordionTab } from "primereact/accordion";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
@@ -9,19 +9,71 @@ import Footer from "../../components/Footer/Footer";
 import data from "../../data/data.json";
 
 const ServicesSection = () => {
-    const { isAuthenticated } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
+    const navigate = useNavigate(); // Añade esta línea
     const [showModal, setShowModal] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
+    const [selectedProfessional, setSelectedProfessional] = useState('');
+    const [selectedDate, setSelectedDate] = useState('');
+    const [availableHours, setAvailableHours] = useState([]);
+    const [selectedHour, setSelectedHour] = useState('');
     const servicios = data.servicios;
+
+    console.log(user.sub);
+
+    // Función para generar horas disponibles (simulación)
+    const generateAvailableHours = (professional, date) => {
+        const hours = [
+            '09:00', '10:00', '11:00', '12:00', '13:00', 
+            '14:00', '15:00', '16:00', '17:00', '18:00'
+        ];
+
+        return hours.filter(hour => true);
+    };
+
+    useEffect(() => {
+        if (selectedProfessional && selectedDate) {
+            const hours = generateAvailableHours(selectedProfessional, selectedDate);
+            setAvailableHours(hours);
+        } else {
+            setAvailableHours([]);
+        }
+    }, [selectedProfessional, selectedDate]);
 
     const openModal = (servicio) => {
         setSelectedService(servicio);
         setShowModal(true);
+        setSelectedProfessional('');
+        setSelectedDate('');
+        setSelectedHour('');
     };
 
     const closeModal = () => {
         setShowModal(false);
         setSelectedService(null);
+    };
+
+    const handleProfessionalChange = (e) => {
+        setSelectedProfessional(e.target.value);
+    };
+
+    const handleDateChange = (e) => {
+        setSelectedDate(e.target.value);
+    };
+
+    const handleHourChange = (e) => {
+        setSelectedHour(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Reserva:', {
+            servicio: selectedService,
+            professional: selectedProfessional,
+            date: selectedDate,
+            hour: selectedHour
+        });
+        closeModal();
     };
 
     return (
@@ -57,7 +109,7 @@ const ServicesSection = () => {
                                                     />
                                                 ) : (
                                                     <Button
-                                                        onClick={() => Navigate("/login")}
+                                                        onClick={() => navigate("/login")} // Cambia Navigate por navigate
                                                         label="Reservar"
                                                         icon="pi pi-sign-in"
                                                         className="mt-3 md:mt-0 bg-[#a16f07] hover:bg-[#8e5707] transition-all duration-300 p-2 text-white text-base font-semibold rounded-lg"
@@ -74,15 +126,14 @@ const ServicesSection = () => {
             </div>
             <Footer />
 
-            {/* Modal de Reserva */}
             <Dialog 
-            visible={showModal} 
-            onHide={closeModal}
-            modal 
-            className="m-4 w-full md:m-0 md:w-1/3 p-5 bg-yellow-950 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 border border-gray-100 md:text-lg shadow-2xl"
+                visible={showModal} 
+                onHide={closeModal}
+                modal 
+                className="m-4 w-full md:m-0 md:w-1/3 p-5 bg-yellow-950 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 border border-gray-100 md:text-lg shadow-2xl"
             >
                 {selectedService && (
-                    <form className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                         <h1 className="text-xl md:text-2xl font-bold">Tu reserva</h1>
 
                         <div>
@@ -90,28 +141,58 @@ const ServicesSection = () => {
                             <p className="text-lg font-bold mt-2">{selectedService.precio}</p>
                             <p className="text-base">{selectedService.tiempo} minutos</p>
                         </div>
-                        <div>
-                        <select name="professional" id="professional" className="block w-full border border-gray-300 rounded-md p-2" required>
-                            <option value="" disabled selected>Reservar con un profesional</option>
-                            <option value="ces">Cesar Gonzalez Pelayo</option>
-                            <option value="dan">Daniel Albarran Gonzalez</option>
-                        </select>
 
+                        <div>
+                            <select 
+                                name="professional" 
+                                id="professional" 
+                                value={selectedProfessional}
+                                onChange={handleProfessionalChange}
+                                className="block w-full border border-gray-300 rounded-md p-2" 
+                                required
+                            >
+                                <option value="" disabled>Reservar con un profesional</option>
+                                <option value="ces">Cesar Gonzalez Pelayo</option>
+                                <option value="dan">Daniel Albarran Gonzalez</option>
+                            </select>
                         </div>
+
                         <div>
                             <label htmlFor="date" className="block text-lg font-medium">Fecha:</label>
                             <input
                                 type="date"
                                 min={new Date().toISOString().split('T')[0]}
                                 id="date"
+                                value={selectedDate}
+                                onChange={handleDateChange}
                                 className="block w-full border border-gray-300 rounded-md p-2"
                                 required
                             />
                         </div>
+
+                        {availableHours.length > 0 && (
+                            <div>
+                                <label htmlFor="hour" className="block text-lg font-medium">Hora:</label>
+                                <select 
+                                    id="hour"
+                                    value={selectedHour}
+                                    onChange={handleHourChange}
+                                    className="block w-full border border-gray-300 rounded-md p-2"
+                                    required
+                                >
+                                    <option value="" disabled>Selecciona una hora</option>
+                                    {availableHours.map(hour => (
+                                        <option key={hour} value={hour}>{hour}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+
                         <Button
                             label="Confirmar Cita"
                             icon="pi pi-check"
                             type="submit"
+                            disabled={!selectedHour}
                             className="w-full bg-[#ca8a04] hover:bg-[#a16f07] text-white px-4 py-2 rounded-lg"
                         />
                     </form>
