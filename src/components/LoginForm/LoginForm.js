@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
+    const navigate = useNavigate();
 
-    const { loginWithRedirect } = useAuth0();
+    useEffect(() => {
+        console.log('Authentication status:', isAuthenticated);
+        if (isAuthenticated) {
+            navigate('/reservas');
+        }
+    }, [isAuthenticated, navigate]);
 
-
+    const handleLogin = () => {
+        loginWithRedirect({
+            appState: {
+                returnTo: '/reservas'
+            }
+        });
+    };
 
     return (
         <div className="mx-auto p-6 md:p-10 border rounded-lg shadow-2xl -translate-y-24 bg-white max-w-sm sm:max-w-md md:max-w-md lg:max-w-lg">
@@ -17,7 +31,7 @@ const LoginForm = () => {
             </p>
             <div className="text-center">
                 <button
-                    onClick={() => loginWithRedirect()}
+                    onClick={handleLogin}
                     className="text-[#422f06] bg-[#ca8a04] hover:bg-[#a16f07] transition-all ease-in-out focus:outline-none font-medium rounded-lg text-sm md:text-base px-4 py-2 w-full mb-5"
                 >
                     Iniciar sesión
@@ -26,9 +40,7 @@ const LoginForm = () => {
                     Volver a la página principal
                 </a>
             </div>
-
         </div>
-
     )
 }
 
