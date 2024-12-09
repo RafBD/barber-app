@@ -15,7 +15,7 @@ root.render(
     <Auth0Provider
     domain = {domain}
     clientId = {clientId}
-    authorizationParams={{redirect_uri: window.location.origin}}
+    authorizationParams={{redirect_uri: window.location.origin + '/reservas'}}
     cacheLocation='localstorage'
     >
     
